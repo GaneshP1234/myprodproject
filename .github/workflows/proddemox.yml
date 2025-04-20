@@ -27,5 +27,5 @@ jobs:
           cat secrets.json
       - name: Export JSON File
         run: |
-          # Example: Move the file to another location or make it available for download
+          # Example: Move the file to another location or make it available for download.
           mv secrets.json C:\HashiCorp
