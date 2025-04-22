@@ -19,7 +19,7 @@ jobs:
           tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
-            prod/data/apps_secret app_secret1
+            prod/data/apps_secret app_secret
       - name: Step following 'Import Secrets'
         run: |
           $test = "${{ steps.import-secrets.outputs.app_secret1 }}"
