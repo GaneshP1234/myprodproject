@@ -19,11 +19,11 @@ jobs:
           tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
-            prod/data/apps_secret app_secret1 | AWS_ACCESS_KEY_ID ;
+            prod/data/apps_secret app_secret1 | APPSECRET ;
       - name: Step following 'Import Secrets'
         run: |
-          #$test = "${{ steps.import-secrets.outputs.app_secret1 }}"
-          $ACCESS_KEY_ID = "${{ env.AWS_ACCESS_KEY_ID }}"
-          echo "Stored Output: $ACCESS_KEY_ID"
+          #$APPSECRET = "${{ steps.import-secrets.outputs.app_secret1 }}"
+          $APPSECRET = "${{ env.APPSECRET }}"
+          echo "Stored Output: $APPSECRET"
           
 
