@@ -26,7 +26,7 @@ jobs:
           echo "${{ toJson(steps.import-secrets.outputs) }}"
           
 
-          env.test = "${{ steps.import-secrets.outputs.app_secret1 }}"
+          $test = "${{ steps.import-secrets.outputs.app_secret1 }}"
 
           
           echo '${{ toJson(steps.import-secrets.outputs) }}' > secrets.json
