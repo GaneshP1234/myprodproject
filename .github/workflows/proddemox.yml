@@ -25,11 +25,3 @@ jobs:
           #$APPSECRET = "${{ steps.import-secrets.outputs.app_secret1 }}"
           $APPSECRET = "${{ env.APPSECRET }}"
           echo "Stored Output: $APPSECRET"
-          #echo '${{ toJson(steps.import-secrets.outputs) }}'
-          #echo "${{ toJson(steps.import-secrets.outputs) }}"
-          echo '${{ toJson(steps.import-secrets.outputs) }}' > secrets.json
-          cat secrets.json
-      - name: Export JSON File
-        run: |
-          # Example: Move the file to another location or make it available for download.
-          mv secrets.json C:\HashiCorp
