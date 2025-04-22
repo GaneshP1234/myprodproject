@@ -22,5 +22,8 @@ jobs:
             prod/data/apps_secret app_secret1
       - name: Step following 'Import Secrets'
         run: |
-          $test = "${{ steps.import-secrets.outputs.app_secret1 }}"
+          #$test = "${{ steps.import-secrets.outputs.app_secret1 }}"
+          $test = app_secret1
           echo "Stored Output: $test"
+          
+
