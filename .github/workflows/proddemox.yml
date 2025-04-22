@@ -25,6 +25,7 @@ jobs:
           echo '${{ toJson(steps.import-secrets.outputs) }}'
           echo "${{ toJson(steps.import-secrets.outputs) }}"
           $test = "${{ steps.import-secrets.outputs.app_secret1 }}"
+          echo "Stored Output: $test"
           
           echo '${{ toJson(steps.import-secrets.outputs) }}' > secrets.json
           cat secrets.json
