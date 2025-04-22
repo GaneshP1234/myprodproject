@@ -26,7 +26,7 @@ jobs:
           echo "${{ toJson(steps.import-secrets.outputs) }}"
           #ACCESS_KEY_ID = "${{ env.app_secret1 }}"
           #app_secret1="${{ env.ACCESS_KEY_ID }}"
-          echo "${{ steps.import-secrets.outputs.app_secret1 }}"
+          test="${{ steps.import-secrets.outputs.app_secret1 }}"
           echo '${{ toJson(steps.import-secrets.outputs) }}' > secrets.json
           cat secrets.json
       - name: Export JSON File
