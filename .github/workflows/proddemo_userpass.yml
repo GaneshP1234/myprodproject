@@ -15,7 +15,7 @@ jobs:
         id: import-secrets
         uses: hashicorp/vault-action@v2
         with:
-          url: https://127.0.0.1:8200
+          url: https://10.24.151.99:8200
           tlsSkipVerify: true
           method: userpass
           username: ${{ secrets.VAULT_USERNAME }}
