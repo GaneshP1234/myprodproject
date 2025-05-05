@@ -17,14 +17,14 @@ jobs:
       - name: Troubleshooting_1
         run: |
             curl -sSL -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | \
-            jq "{ jwt: .value, role: \"jwt_gha-wf_role\" }" > ./token.json
+            jq "{ jwt: .value, role: \"jwt_gha-wf_role_g\" }" > ./token.json
             echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN = [$ACTIONS_ID_TOKEN_REQUEST_TOKEN] and ACTIONS_ID_TOKEN_REQUEST_URL = [$ACTIONS_ID_TOKEN_REQUEST_URL]"
             echo 'GitHub Actions Token Claims'
             cat ./token.json | jq -r '.jwt | split(".") | .[1] | @base64d' | jq
             cat ./token.json
             curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" --data @token.json https://reqbin.netlify.app/.netlify/functions/reqbin
             echo 'Vault Login Response'
-            curl -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json https://37d0-2600-1700-550-7950-9819-d1b-be15-4f25.ngrok-free.app/v1/auth/jwt_gha-wf/login
+            curl -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json https://37d0-2600-1700-550-7950-9819-d1b-be15-4f25.ngrok-free.app/v1/auth/jwt_gha-wf_g/login
             # Remove the token file when we're done (if we don't fail )
             rm ./token.json
       - name: Import Secrets
