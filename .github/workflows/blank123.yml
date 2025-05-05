@@ -32,13 +32,13 @@ jobs:
         uses: hashicorp/vault-action@v3
         with:
           url: https://37d0-2600-1700-550-7950-9819-d1b-be15-4f25.ngrok-free.app
-          path: jwt_gha-wf_g
-          role: jwt_gha-wf_role_g
+          path: jwt_gha-wf_ganesh
+          role: jwt_gha-wf_role_ganesh
           method: jwt
           exportToken: true
           exportEnv: true
           secrets: |
-            gha_wf_g/data/repo:GaneshP1234/myprodproject:ref:refs/heads/main/proddemo123 ** | MYAPP_ ;
+            gha_wf_ganesh/data/ganesh/secrets ** | MYAPP_ ;
             
       - name: Troubleshooting_2
         run: |
