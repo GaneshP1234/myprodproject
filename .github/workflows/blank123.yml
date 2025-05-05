@@ -19,7 +19,7 @@ jobs:
         uses: hashicorp/vault-action@v3
         with:
           url: https://127.0.0.1:8200
-          caCertificate : C:/HashiCorp/vaultdata/vault-cert.pem
+          #caCertificate : C:/HashiCorp/vaultdata
           tlsSkipVerify: true
           method: jwt
           path: jwt
