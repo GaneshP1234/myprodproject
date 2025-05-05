@@ -32,15 +32,14 @@ jobs:
         uses: hashicorp/vault-action@v3
         with:
           url: https://37d0-2600-1700-550-7950-9819-d1b-be15-4f25.ngrok-free.app
-          tlsSkipVerify: true
+          path: jwt_gha-wf_g
+          role: jwt_gha-wf_role_g
           method: jwt
-          path: jwt_gha-wf
-          role: jwt_gha-wf_role
           exportToken: true
           exportEnv: true
           secrets: |
-            gha_wf/data/repo:BalaGanaparthi/GHActions:ref:refs/heads/main/jwt-github-actions-vault-secrets ** | MYAPP_ ;
+            gha_wf_g/data/repo:GaneshP1234/myprodproject:ref:refs/heads/main/proddemo123 ** | MYAPP_ ;
       - name: Step following 'Import Secrets'
         run: |
-          $APPSECRET = "${{ env.APPSECRET }}"
-          echo "Stored Output: $APPSECRET"
+          $MYAPP_ = "${{ env.MYAPP_ }}"
+          echo "Stored Output: $MYAPP_"
